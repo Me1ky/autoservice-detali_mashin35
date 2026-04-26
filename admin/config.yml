@@ -1,8 +1,5 @@
-local_backend: true
-
 backend:
-  name: github
-  repo: me1ky/autoservice-detali_mashin35
+  name: git-gateway
   branch: main
 
 media_folder: "images"
@@ -13,7 +10,7 @@ collections:
     label: "Сайт"
     files:
       - file: "data/site.json"
-        label: "Главная страница"
+        label: "Главная"
         name: "homepage"
         fields:
           - { label: "Заголовок", name: "title", widget: "string" }
