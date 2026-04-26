@@ -1,5 +1,9 @@
+local_backend: true
+
 backend:
-  name: test-repo
+  name: github
+  repo: me1ky/autoservice-detali_mashin35
+  branch: main
 
 media_folder: "images"
 public_folder: "/images"
@@ -9,7 +13,9 @@ collections:
     label: "Сайт"
     files:
       - file: "data/site.json"
-        label: "Главная"
-        name: "home"
+        label: "Главная страница"
+        name: "homepage"
         fields:
           - { label: "Заголовок", name: "title", widget: "string" }
+          - { label: "Описание", name: "description", widget: "text" }
+          - { label: "Фото", name: "image", widget: "image" }
