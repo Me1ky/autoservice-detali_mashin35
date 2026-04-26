@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: me1ky/-35-
+  repo: me1ky/autoservice-detali_mashin35
   branch: main
 
 media_folder: "images"
