@@ -13,6 +13,14 @@ collections:
         label: "Главная"
         name: "homepage"
         fields:
-          - { label: "Заголовок", name: "title", widget: "string" }
-          - { label: "Описание", name: "description", widget: "text" }
-          - { label: "Фото", name: "image", widget: "image" }
+          - label: "Заголовок"
+            name: "title"
+            widget: "string"
+
+          - label: "Описание"
+            name: "description"
+            widget: "text"
+
+          - label: "Фото"
+            name: "image"
+            widget: "image"
