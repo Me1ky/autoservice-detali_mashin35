@@ -20,25 +20,21 @@ body {
 
 /* ===== ШАПКА ===== */
 header {
-    background: #0a0f1c;
+    background: #0f172a;
     color: white;
-    padding: 24px 0;
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 2px solid #f97316;
 }
 
 header h1 {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #ffffff, #b0c4ff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
     margin-bottom: 16px;
+    color: white;
 }
 
 nav {
@@ -54,13 +50,13 @@ nav a {
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.2s ease;
-    padding: 6px 0;
-    border-bottom: 2px solid transparent;
+    padding: 6px 12px;
+    border-radius: 30px;
 }
 
 nav a:hover {
     color: #f97316;
-    border-bottom-color: #f97316;
+    background: rgba(249, 115, 22, 0.1);
 }
 
 /* ===== HERO БЛОК ===== */
@@ -68,20 +64,14 @@ nav a:hover {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: white;
     text-align: center;
-    padding: 90px 20px;
-    border-radius: 0 0 32px 32px;
-    margin-bottom: 20px;
+    padding: 80px 20px;
 }
 
 .hero h2 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    letter-spacing: -1px;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #fff, #f97316);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    color: white;
 }
 
 .hero p {
@@ -95,46 +85,40 @@ nav a:hover {
     display: inline-block;
     margin-top: 28px;
     padding: 14px 32px;
-    background: linear-gradient(95deg, #f97316, #ea580c);
+    background: #f97316;
     color: white;
     text-decoration: none;
     border-radius: 40px;
     font-weight: 600;
-    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(249, 115, 22, 0.4);
+    background: #ea580c;
+    transform: translateY(-2px);
 }
 
 /* ===== СЕКЦИИ ===== */
 section {
-    padding: 70px 0;
+    padding: 60px 0;
 }
 
 section:nth-child(even) {
     background-color: #ffffff;
 }
 
-h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 48px;
-    letter-spacing: -0.3px;
-    position: relative;
+section:nth-child(odd) {
+    background-color: #f8fafc;
 }
 
-h2::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #f97316;
-    margin: 16px auto 0;
-    border-radius: 4px;
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #0f172a;
 }
 
 /* ===== КАРТОЧКИ УСЛУГ ===== */
@@ -148,28 +132,28 @@ h2::after {
 .card {
     background: white;
     width: 260px;
-    padding: 28px 20px;
-    border-radius: 24px;
+    padding: 30px 20px;
+    border-radius: 20px;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
 }
 
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
 
 .card h3 {
-    font-size: 1.5rem;
-    margin: 16px 0 8px;
+    font-size: 1.4rem;
+    margin: 15px 0 8px;
     color: #0f172a;
 }
 
 .card p {
     color: #475569;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* Иконки для карточек */
@@ -199,22 +183,21 @@ table {
     width: 100%;
     border-collapse: collapse;
     background: white;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 th, td {
-    padding: 16px 20px;
+    padding: 15px 20px;
     text-align: center;
-    border-bottom: 1px solid #e9edf2;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 th {
     background: #0f172a;
     color: white;
     font-weight: 600;
-    font-size: 1rem;
 }
 
 tr:last-child td {
@@ -222,17 +205,17 @@ tr:last-child td {
 }
 
 tr:hover td {
-    background-color: #fef7e8;
+    background-color: #fef3c7;
 }
 
 /* ===== КОНТАКТЫ ===== */
 #contacts p {
     background: white;
-    padding: 16px 24px;
+    padding: 14px 24px;
     margin: 12px auto;
-    max-width: 500px;
-    border-radius: 60px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    max-width: 450px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border: 1px solid #e2e8f0;
     font-size: 1rem;
 }
@@ -244,11 +227,12 @@ tr:hover td {
 
 /* ===== ФУТЕР ===== */
 footer {
-    background: #0a0f1c;
-    color: #b9c3d4;
+    background: #0f172a;
+    color: #94a3b8;
     text-align: center;
-    padding: 28px 20px;
+    padding: 25px 20px;
     margin-top: 20px;
+    border-top: 1px solid #f97316;
 }
 
 /* ===== АДАПТИВ ===== */
@@ -257,35 +241,37 @@ footer {
         font-size: 2rem;
     }
     .hero {
-        padding: 60px 20px;
+        padding: 50px 20px;
     }
     .card {
         width: 45%;
     }
     h2 {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
     nav {
-        gap: 1.3rem;
+        gap: 1rem;
     }
     th, td {
-        padding: 12px 10px;
+        padding: 10px 12px;
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
     }
     nav {
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
+    }
+    nav a {
+        padding: 8px 20px;
     }
     .hero {
-        padding: 45px 16px;
-        border-radius: 0 0 24px 24px;
+        padding: 40px 16px;
     }
     .hero h2 {
         font-size: 1.6rem;
@@ -295,32 +281,33 @@ footer {
     }
     .card {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
     }
     .cards {
         gap: 20px;
     }
+    
     /* Адаптивная таблица */
     table, thead, tbody, th, td, tr {
         display: block;
     }
-    th {
+    thead {
         display: none;
     }
     tr {
-        margin-bottom: 16px;
+        margin-bottom: 15px;
         border: 1px solid #e2e8f0;
-        border-radius: 20px;
-        padding: 12px;
+        border-radius: 16px;
+        padding: 10px;
         background: white;
     }
     td {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px dashed #e2e8f0;
+        border-bottom: 1px solid #f1f5f9;
         text-align: right;
-        padding: 10px 12px;
+        padding: 8px 12px;
     }
     td:last-child {
         border-bottom: none;
@@ -331,13 +318,14 @@ footer {
         text-align: left;
         color: #0f172a;
     }
+    
     #contacts p {
-        padding: 12px 18px;
-        font-size: 0.9rem;
-        border-radius: 40px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        border-radius: 30px;
     }
     .btn {
-        padding: 12px 24px;
+        padding: 10px 20px;
         font-size: 0.9rem;
     }
 }
