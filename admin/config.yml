@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: "Me1ky/autoservice-detali_mashin35"
   branch: main
+  client_id: "your_github_oauth_client_id"
+  auth_endpoint: "https://your-oauth-proxy-url.com/auth"
 
 media_folder: "images"
 public_folder: "/images"
@@ -16,11 +19,9 @@ collections:
           - label: "Заголовок"
             name: "title"
             widget: "string"
-
           - label: "Описание"
             name: "description"
             widget: "text"
-
           - label: "Фото"
             name: "image"
             widget: "image"
