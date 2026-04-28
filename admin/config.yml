@@ -2,8 +2,8 @@ backend:
   name: github
   repo: "Me1ky/autoservice-detali_mashin35"
   branch: main
-  client_id: "your_github_oauth_client_id"
-  auth_endpoint: "https://your-oauth-proxy-url.com/auth"
+  client_id: "Ov23li0sTCsxyZ4xqmdp"
+  auth_endpoint: "https://decap-proxy-Me1ky.vercel.app/auth"
 
 media_folder: "images"
 public_folder: "/images"
