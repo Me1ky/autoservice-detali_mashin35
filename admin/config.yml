@@ -3,7 +3,7 @@ backend:
   repo: "Me1ky/autoservice-detali_mashin35"
   branch: main
   client_id: "Ov23li0sTCsxyZ4xqmdp"
-  auth_endpoint: "decap-cms-oauth-liart.vercel.app/auth"
+  auth_endpoint: "https//decap-cms-oauth-liart.vercel.app/auth"
 
 media_folder: "images"
 public_folder: "/images"
