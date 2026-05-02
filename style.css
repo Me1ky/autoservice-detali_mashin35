@@ -436,3 +436,59 @@ footer {
         color: #0f172a;
     }
 }
+/* ===== Активный пункт меню ===== */
+nav a.nav-active {
+    color: #f97316;
+    background: rgba(249, 115, 22, 0.15);
+    pointer-events: none;
+}
+
+/* ===== Бургер-меню ===== */
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 6px 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 102;
+    transition: transform 0.2s ease;
+}
+.burger-btn:hover { transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    .burger-btn { display: block; }
+    
+    nav.mobile-hidden { display: none; }
+    nav.mobile-visible {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #0f172a;
+        padding: 20px;
+        z-index: 101;
+        border-bottom: 2px solid #f97316;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+}
+
+/* ===== Анимации при скролле ===== */
+.card, .service-item, .contact-item, .stat-card, .hero, .page-hero {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.card.visible, .service-item.visible, .contact-item.visible, 
+.stat-card.visible, .hero.visible, .page-hero.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
