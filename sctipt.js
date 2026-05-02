@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 2. Адаптивное бургер-меню (создаётся автоматически)
+    // 2. Адаптивное бургер-меню
     var header = document.querySelector('header');
     var nav = document.querySelector('nav');
     
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         burger.className = 'burger-btn';
         burger.setAttribute('aria-label', 'Открыть меню');
         burger.textContent = '☰';
+        header.style.position = 'relative';
         header.appendChild(burger);
 
         nav.classList.add('mobile-hidden');
@@ -28,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
             burger.textContent = isOpen ? '✕' : '☰';
         });
 
-        // Закрытие при клике на ссылку
         var links = nav.querySelectorAll('a');
         for (var j = 0; j < links.length; j++) {
             links[j].addEventListener('click', function() {
@@ -37,15 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 burger.textContent = '☰';
             });
         }
-
-        // Закрытие при клике вне меню
-        document.addEventListener('click', function(e) {
-            if (!nav.contains(e.target) && !burger.contains(e.target) && nav.classList.contains('mobile-visible')) {
-                nav.classList.remove('mobile-visible');
-                nav.classList.add('mobile-hidden');
-                burger.textContent = '☰';
-            }
-        });
     }
 
     // 3. Анимация появления блоков при скролле
@@ -64,27 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(animElements[k]);
         }
     } else {
-        // Fallback для старых браузеров
         for (var k = 0; k < animElements.length; k++) {
             animElements[k].classList.add('visible');
         }
     }
 
-    // 4. Плавный скролл к якорям (если они появятся)
-    var anchorLinks = document.querySelectorAll('a[href^="#"]');
-    for (var m = 0; m < anchorLinks.length; m++) {
-        anchorLinks[m].addEventListener('click', function(e) {
-            var targetId = this.getAttribute('href').substring(1);
-            var targetEl = document.getElementById(targetId);
-            if (targetEl) {
-                e.preventDefault();
-                var offset = targetEl.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({ top: offset, behavior: 'smooth' });
-            }
-        });
-    }
-
-    // 5. Динамический год в футере
+    // 4. Динамический год в футере
     var footer = document.querySelector('footer');
     if (footer) {
         var currentYear = new Date().getFullYear();

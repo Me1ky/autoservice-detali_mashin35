@@ -351,7 +351,7 @@ footer {
     border-top: 1px solid #f97316;
 }
 
-/* ===== АДАПТИВ (768px) ===== */
+/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
     .hero h2, .page-hero h2 {
         font-size: 1.8rem;
@@ -379,7 +379,6 @@ footer {
     }
 }
 
-/* ===== АДАПТИВ (480px) ===== */
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.3rem;
@@ -405,7 +404,6 @@ footer {
     .cards {
         gap: 20px;
     }
-    
     /* Адаптивная таблица */
     table, thead, tbody, th, td, tr {
         display: block;
@@ -439,13 +437,14 @@ footer {
     }
 }
 
-/* ===== СТИЛИ ДЛЯ JS ===== */
+/* ===== Активный пункт меню ===== */
 nav a.nav-active {
     color: #f97316;
     background: rgba(249, 115, 22, 0.15);
     pointer-events: none;
 }
 
+/* ===== Бургер-меню ===== */
 .burger-btn {
     display: none;
     background: none;
@@ -483,7 +482,7 @@ nav a.nav-active {
     }
 }
 
-/* Анимации появления при скролле */
+/* ===== Анимации при скролле ===== */
 .card, .service-item, .contact-item, .stat-card, .hero, .page-hero {
     opacity: 0;
     transform: translateY(25px);
