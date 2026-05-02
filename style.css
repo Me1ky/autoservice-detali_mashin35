@@ -1,4 +1,5 @@
-* {
+/* ===== СБРОС И БАЗОВЫЕ СТИЛИ ===== */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -307,7 +308,7 @@ tr:hover td {
     background-color: #fef3c7;
 }
 
-/* ===== СТРАНИЦА КОНТАКТОВ (упрощенная) ===== */
+/* ===== СТРАНИЦА КОНТАКТОВ ===== */
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -350,7 +351,7 @@ footer {
     border-top: 1px solid #f97316;
 }
 
-/* ===== АДАПТИВ ===== */
+/* ===== АДАПТИВ (768px) ===== */
 @media (max-width: 768px) {
     .hero h2, .page-hero h2 {
         font-size: 1.8rem;
@@ -378,6 +379,7 @@ footer {
     }
 }
 
+/* ===== АДАПТИВ (480px) ===== */
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.3rem;
@@ -436,14 +438,14 @@ footer {
         color: #0f172a;
     }
 }
-/* ===== Активный пункт меню ===== */
+
+/* ===== СТИЛИ ДЛЯ JS ===== */
 nav a.nav-active {
     color: #f97316;
     background: rgba(249, 115, 22, 0.15);
     pointer-events: none;
 }
 
-/* ===== Бургер-меню ===== */
 .burger-btn {
     display: none;
     background: none;
@@ -458,11 +460,11 @@ nav a.nav-active {
     z-index: 102;
     transition: transform 0.2s ease;
 }
+
 .burger-btn:hover { transform: scale(1.1); }
 
 @media (max-width: 768px) {
     .burger-btn { display: block; }
-    
     nav.mobile-hidden { display: none; }
     nav.mobile-visible {
         display: flex;
@@ -481,13 +483,14 @@ nav a.nav-active {
     }
 }
 
-/* ===== Анимации при скролле ===== */
+/* Анимации появления при скролле */
 .card, .service-item, .contact-item, .stat-card, .hero, .page-hero {
     opacity: 0;
     transform: translateY(25px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.card.visible, .service-item.visible, .contact-item.visible, 
+
+.card.visible, .service-item.visible, .contact-item.visible,
 .stat-card.visible, .hero.visible, .page-hero.visible {
     opacity: 1;
     transform: translateY(0);
