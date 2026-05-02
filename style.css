@@ -1,4 +1,3 @@
-/* ===== СБРОС И БАЗОВЫЕ СТИЛИ ===== */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -19,7 +18,6 @@ body {
     margin: auto;
 }
 
-/* ===== ШАПКА ===== */
 header {
     background: #0f172a;
     color: white;
@@ -60,7 +58,6 @@ nav a:hover {
     background: rgba(249, 115, 22, 0.1);
 }
 
-/* ===== HERO БЛОК ДЛЯ ГЛАВНОЙ ===== */
 .hero {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: white;
@@ -82,7 +79,6 @@ nav a:hover {
     opacity: 0.9;
 }
 
-/* ===== HERO ДЛЯ ОСТАЛЬНЫХ СТРАНИЦ ===== */
 .page-hero {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     color: white;
@@ -121,7 +117,6 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* ===== СЕКЦИИ ===== */
 section {
     padding: 60px 0;
 }
@@ -148,7 +143,6 @@ h3 {
     color: #0f172a;
 }
 
-/* ===== КАРТОЧКИ ===== */
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -277,7 +271,6 @@ h3 {
     line-height: 1.5;
 }
 
-/* ===== ТАБЛИЦА ЦЕН ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -341,7 +334,15 @@ tr:hover td {
     margin: 8px 0;
 }
 
-/* ===== ФУТЕР ===== */
+.contact-item a {
+    color: #f97316;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
 footer {
     background: #0f172a;
     color: #94a3b8;
@@ -351,7 +352,6 @@ footer {
     border-top: 1px solid #f97316;
 }
 
-/* ===== АДАПТИВ ===== */
 @media (max-width: 768px) {
     .hero h2, .page-hero h2 {
         font-size: 1.8rem;
@@ -437,14 +437,12 @@ footer {
     }
 }
 
-/* ===== Активный пункт меню ===== */
 nav a.nav-active {
     color: #f97316;
     background: rgba(249, 115, 22, 0.15);
     pointer-events: none;
 }
 
-/* ===== Бургер-меню ===== */
 .burger-btn {
     display: none;
     background: none;
@@ -482,7 +480,6 @@ nav a.nav-active {
     }
 }
 
-/* ===== Анимации при скролле ===== */
 .card, .service-item, .contact-item, .stat-card, .hero, .page-hero {
     opacity: 0;
     transform: translateY(25px);
