@@ -28,10 +28,11 @@
             </div>
         </section>
 
-        <section class="services">
+        <section class="services-list">
             <div class="container">
                 <div class="services-grid" id="services-container">
                     <!-- Услуги загружаются из JSON -->
+                    <div class="service-item">🔧 Загрузка...</div>
                 </div>
             </div>
         </section>
@@ -39,10 +40,29 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Детали Машинъ35 | Автосервис в Вологде</p>
+            <p>© 2026 Детали Машинъ35 | Автосервис в Вологде | ул. Окружное шоссе, 21 к 3</p>
         </div>
     </footer>
 
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Загрузка услуг из JSON
+        fetch('assets/data/services.json')
+            .then(response => response.json())
+            .then(services => {
+                const container = document.getElementById('services-container');
+                container.innerHTML = services.map(service => `
+                    <div class="service-item">
+                        <span class="service-icon">${service.icon}</span>
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                    </div>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки услуг:', error);
+                document.getElementById('services-container').innerHTML = '<div class="service-item">⚠️ Ошибка загрузки данных</div>';
+            });
+    </script>
 </body>
 </html>

@@ -60,65 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 4. Год в футере
+    // 4. Обновление года в футере
     var footer = document.querySelector('footer');
     if (footer) {
         var currentYear = new Date().getFullYear();
         footer.innerHTML = footer.innerHTML.replace(/©\s*\d{4}/, '© ' + currentYear);
     }
-
-    // 5. Загрузка услуг
-    const servicesContainer = document.getElementById('services-container');
-    if (servicesContainer) {
-        fetch('assets/data/services.json')
-            .then(res => res.json())
-            .then(data => {
-                servicesContainer.innerHTML = '';
-                data.forEach(service => {
-                    const el = document.createElement('div');
-                    el.className = 'service-item visible';
-                    el.innerHTML = `
-                        <span class="service-icon">${service.icon}</span>
-                        <h3>${service.name}</h3>
-                        <p>${service.description}</p>
-                    `;
-                    servicesContainer.appendChild(el);
-                });
-            })
-            .catch(err => console.error('Ошибка загрузки услуг:', err));
-    }
-
-    // 6. Загрузка цен
-    const repairPricesTable = document.querySelector('#repair-prices tbody');
-    const tirePricesTable = document.querySelector('#tire-prices tbody');
-
-    if (repairPricesTable || tirePricesTable) {
-        fetch('assets/data/prices.json')
-            .then(res => res.json())
-            .then(data => {
-                if (repairPricesTable && data.repair) {
-                    repairPricesTable.innerHTML = '';
-                    data.repair.forEach(item => {
-                        const tr = document.createElement('tr');
-                        tr.innerHTML = `
-                            <td data-label="Услуга">${item.name}</td>
-                            <td data-label="Цена">${item.price}</td>
-                        `;
-                        repairPricesTable.appendChild(tr);
-                    });
-                }
-                if (tirePricesTable && data.tire) {
-                    tirePricesTable.innerHTML = '';
-                    data.tire.forEach(item => {
-                        const tr = document.createElement('tr');
-                        tr.innerHTML = `
-                            <td data-label="Услуга">${item.name}</td>
-                            <td data-label="Цена">${item.price}</td>
-                        `;
-                        tirePricesTable.appendChild(tr);
-                    });
-                }
-            })
-            .catch(err => console.error('Ошибка загрузки цен:', err));
-    }
-})
+});

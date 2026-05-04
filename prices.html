@@ -30,30 +30,20 @@
 
         <section class="prices">
             <div class="container">
-                <h3>Ремонтные работы</h3>
+                <h3>🔧 Ремонтные работы</h3>
                 <table id="repair-prices">
                     <thead>
-                        <tr>
-                            <th>Услуга</th>
-                            <th>Цена</th>
-                        </tr>
+                        <tr><th>Услуга</th><th>Цена</th></tr>
                     </thead>
-                    <tbody>
-                        <!-- Цены загружаются из JSON -->
-                    </tbody>
+                    <tbody><tr><td colspan="2">Загрузка...</td></tr></tbody>
                 </table>
 
-                <h3>Шиномонтаж</h3>
+                <h3>🛞 Шиномонтаж</h3>
                 <table id="tire-prices">
                     <thead>
-                        <tr>
-                            <th>Услуга</th>
-                            <th>Цена</th>
-                        </tr>
+                        <tr><th>Услуга</th><th>Цена</th></tr>
                     </thead>
-                    <tbody>
-                        <!-- Цены загружаются из JSON -->
-                    </tbody>
+                    <tbody><tr><td colspan="2">Загрузка...</td></tr></tbody>
                 </table>
             </div>
         </section>
@@ -61,10 +51,32 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Детали Машинъ35 | Автосервис в Вологде</p>
+            <p>© 2026 Детали Машинъ35 | Автосервис в Вологде | ул. Окружное шоссе, 21 к 3</p>
         </div>
     </footer>
 
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Загрузка цен из JSON
+        fetch('assets/data/prices.json')
+            .then(response => response.json())
+            .then(data => {
+                const repairTbody = document.querySelector('#repair-prices tbody');
+                const tireTbody = document.querySelector('#tire-prices tbody');
+                
+                repairTbody.innerHTML = data.repair.map(item => `
+                    <tr><td data-label="Услуга">${item.name}</td><td data-label="Цена">${item.price}</td></tr>
+                `).join('');
+                
+                tireTbody.innerHTML = data.tire.map(item => `
+                    <tr><td data-label="Услуга">${item.name}</td><td data-label="Цена">${item.price}</td></tr>
+                `).join('');
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки цен:', error);
+                document.querySelector('#repair-prices tbody').innerHTML = '<tr><td colspan="2">⚠️ Ошибка загрузки данных</td></tr>';
+                document.querySelector('#tire-prices tbody').innerHTML = '<tr><td colspan="2">⚠️ Ошибка загрузки данных</td></tr>';
+            });
+    </script>
 </body>
 </html>
