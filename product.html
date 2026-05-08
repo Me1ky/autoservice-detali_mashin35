@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моторное масло Shell Helix - Детали Машинъ35</title>
-    <!-- Путь к CSS в папке assets -->
+    <title>Каталог товаров - Детали Машинъ35</title>
+    <!-- Подключаем стили из папки assets -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -19,6 +19,7 @@
                 <a href="about.html">О нас</a>
                 <a href="services.html">Услуги</a>
                 <a href="prices.html">Цены</a>
+                <a href="products.html">Товары</a> <!-- Новая ссылка -->
                 <a href="contacts.html">Контакты</a>
             </nav>
         </div>
@@ -27,72 +28,83 @@
     <!-- Заголовок страницы -->
     <section class="page-hero">
         <div class="container">
-            <h2>Карточка товара</h2>
-            <p>Подробная информация о запчасти или расходном материале</p>
+            <h2>Каталог товаров</h2>
+            <p>Масла, фильтры и автохимия в наличии</p>
         </div>
     </section>
 
-    <!-- Основной контент товара -->
+    <!-- Основной контент -->
     <main class="container">
-        <div class="product-wrapper">
-            
-            <!-- Левая колонка: Изображение -->
-            <div class="product-image-box">
-                <!-- Заглушка изображения. Замените src на путь к вашему фото, например assets/img/oil.jpg -->
-                <img src="https://via.placeholder.com/500x500?text=Motor+Oil" alt="Моторное масло Shell Helix">
-            </div>
-
-            <!-- Правая колонка: Информация -->
-            <div class="product-details">
-                <span class="product-category">Масла и технические жидкости</span>
-                <h1 class="product-title">Моторное масло Shell Helix HX7 5W-30 (4л)</h1>
+        <section>
+            <!-- Сетка товаров -->
+            <div class="products-grid">
                 
-                <div class="product-price-block">
-                    <span class="current-price">4 500 ₽</span>
-                    <span class="status-in-stock">В наличии</span>
+                <!-- Товар 1 -->
+                <div class="product-card">
+                    <div class="product-icon">🛢️</div>
+                    <h3>Shell Helix HX7 5W-30</h3>
+                    <p class="product-desc">Полусинтетика, 4л. Для бензиновых и дизельных двигателей.</p>
+                    <div class="product-price">4 500 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
                 </div>
 
-                <p class="product-description">
-                    Полусинтетическое моторное масло Shell Helix HX7 5W-30 разработано для современных бензиновых и дизельных двигателей. 
-                    Обеспечивает превосходную защиту от износа и сохраняет чистоту двигателя. 
-                    Идеально подходит для городского режима эксплуатации с частыми остановками.
-                </p>
-
-                <!-- Характеристики -->
-                <div class="product-specs">
-                    <h3>Характеристики:</h3>
-                    <ul>
-                        <li><span>Объем:</span> <strong>4 л</strong></li>
-                        <li><span>Вязкость SAE:</span> <strong>5W-30</strong></li>
-                        <li><span>Тип двигателя:</span> <strong>Бензин / Дизель</strong></li>
-                        <li><span>Артикул:</span> <strong>550040309</strong></li>
-                        <li><span>Производитель:</span> <strong>Shell</strong></li>
-                    </ul>
+                <!-- Товар 2 -->
+                <div class="product-card">
+                    <div class="product-icon">🛢️</div>
+                    <h3>Mobil Super 3000 5W-40</h3>
+                    <p class="product-desc">Синтетика, 4л. Максимальная защита двигателя.</p>
+                    <div class="product-price">5 200 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
                 </div>
 
-                <!-- Кнопка действия -->
-                <button id="orderBtn" class="btn">Заказать по телефону</button>
-                <p class="small-note">*Для уточнения наличия и заказа свяжитесь с администратором.</p>
+                <!-- Товар 3 -->
+                <div class="product-card">
+                    <div class="product-icon">🌀</div>
+                    <h3>Фильтр масляный Bosch</h3>
+                    <p class="product-desc">Оригинальный фильтр. Подходит для VW, Audi, Skoda.</p>
+                    <div class="product-price">650 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
+                </div>
+
+                <!-- Товар 4 -->
+                <div class="product-card">
+                    <div class="product-icon">❄️</div>
+                    <h3>Антифриз G12+ Red</h3>
+                    <p class="product-desc">Готовая жидкость, 5кг. Защита до -40°C.</p>
+                    <div class="product-price">900 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
+                </div>
+
+                <!-- Товар 5 -->
+                <div class="product-card">
+                    <div class="product-icon">💧</div>
+                    <h3>Тормозная жидкость DOT4</h3>
+                    <p class="product-desc">0.5л. Высокая температура кипения.</p>
+                    <div class="product-price">350 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
+                </div>
+
+                <!-- Товар 6 -->
+                <div class="product-card">
+                    <div class="product-icon">🧼</div>
+                    <h3>Очиститель карбюратора</h3>
+                    <p class="product-desc">Аэрозоль 500мл. Быстрая очистка узлов.</p>
+                    <div class="product-price">450 ₽</div>
+                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
+                </div>
+
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Подвал -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Автосервис «Детали Машинъ35». Все права защищены.</p>
-            <p>г. Вологда, Окружное шоссе</p>
+            <p>&copy; 2026 Детали Машинъ35 | Автосервис в Вологде</p>
         </div>
     </footer>
 
-    <!-- Путь к JS в папке assets -->
+    <!-- Скрипты -->
     <script src="assets/js/script.js"></script>
-    
-    <!-- Специфичный скрипт для кнопки заказа на этой странице -->
-    <script>
-        document.getElementById('orderBtn').addEventListener('click', function() {
-            alert('Пожалуйста, позвоните нам по номеру +7 (XXX) XXX-XX-XX для бронирования этого товара.');
-        });
-    </script>
 </body>
 </html>
