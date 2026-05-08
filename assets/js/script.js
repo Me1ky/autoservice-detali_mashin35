@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
     // 1. Логика мобильного меню (Бургер)
     const burgerBtn = document.querySelector('.burger-btn');
     const navMenu = document.querySelector('nav');
@@ -7,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         burgerBtn.addEventListener('click', function() {
             navMenu.classList.toggle('mobile-visible');
             
-            // Меняем иконку
+            // Меняем иконку при открытии/закрытии
             if (navMenu.classList.contains('mobile-visible')) {
                 burgerBtn.textContent = '✕';
             } else {
@@ -40,8 +41,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.card, .service-item, .contact-item, .stat-card, .hero, .page-hero, .product-wrapper');
+    // Выбираем элементы для анимации
+    const animatedElements = document.querySelectorAll('.card, .service-item, .contact-item, .stat-card, .hero, .page-hero, .product-card, .product-wrapper');
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // 4. Загрузка товаров из JSON (только если мы на главной странице и есть контейнер)
+    const productsContainer = document.getElementById('products-container');
+    if (productsContainer) {
+        fetch('assets/data/products.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(products => {
+                productsContainer.innerHTML = ''; // Очищаем текст "Загрузка..."
+
+                products.forEach(product => {
+                    // Создаем карточку товара
+                    const card = document.createElement('div');
+                    card.className = 'product-card'; // Класс для стилей
+                    
+                    card.innerHTML = `
+                        <div class="product-icon">${product.icon}</div>
+                        <h3>${product.name}</h3>
+                        <p class="product-desc">${product.description}</p>
+                        <div class="product-price">${product.price.toLocaleString()} ₽</div>
+                        <button class="btn-sm" onclick="alert('Для заказа ${product.name} позвоните нам!')">Заказать</button>
+                    `;
+                    
+                    productsContainer.appendChild(card);
+                });
+
+                // После добавления товаров нужно заново запустить анимацию для новых элементов
+                const newCards = document.querySelectorAll('.product-card');
+                newCards.forEach(el => {
+                    // Сбрасываем стили анимации, чтобы они сработали
+                    el.classList.remove('visible'); 
+                    observer.observe(el);
+                });
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки товаров:', error);
+                productsContainer.innerHTML = '<p style="color:red; text-align:center;">Не удалось загрузить каталог товаров.</p>';
+            });
+    }
 });
