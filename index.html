@@ -8,7 +8,6 @@
 </head>
 	<body>
 
-		<!-- Шапка -->
 		<header>
 			<div class="container header-content">
 				<a href="index.html" class="logo">Детали Машинъ35</a>
@@ -18,12 +17,12 @@
 					<a href="about.html">О нас</a>
 					<a href="services.html">Услуги</a>
 					<a href="prices.html">Цены</a>
+					<a href="products.html">Товары</a>
 					<a href="contacts.html">Контакты</a>
 				</nav>
 			</div>
 		</header>
 
-		<!-- Hero блок -->
 		<section class="hero">
 			<div class="container">
 				<h2>Профессиональный ремонт автомобилей в Вологде</h2>
@@ -33,7 +32,6 @@
 		</section>
 
 		<main>
-			<!-- Услуги -->
 			<section id="services">
 				<div class="container">
 					<h2 class="section-title">Наши услуги</h2>
@@ -62,21 +60,6 @@
 				</div>
 			</section>
 
-			<!-- Товары (Загружаются из JSON) -->
-			<section id="products" style="background-color: #f8fafc;">
-				<div class="container">
-					<h2 class="section-title">Популярные товары</h2>
-					<div id="products-container" class="products-grid">
-						<!-- Сюда JavaScript вставит карточки товаров -->
-						<p style="text-align: center; width: 100%;">Загрузка товаров...</p>
-					</div>
-					<div style="text-align: center; margin-top: 30px;">
-						<a href="contacts.html" class="btn">Узнать наличие других запчастей</a>
-					</div>
-				</div>
-			</section>
-
-			<!-- Преимущества -->
 			<section id="advantages">
 				<div class="container">
 					<h2 class="section-title">Почему выбирают нас</h2>
@@ -98,7 +81,6 @@
 			</section>
 		</main>
 
-		<!-- Подвал -->
 		<footer>
 			<div class="container">
 				<p>&copy; 2026 Детали Машинъ35 | Автосервис в Вологде</p>
@@ -106,45 +88,5 @@
 		</footer>
 
 		<script src="assets/js/script.js"></script>
-
-		<!-- Скрипт для загрузки товаров из JSON -->
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-			fetch('assets/data/products.json')
-			.then(response => response.json())
-			.then(products => {
-			const container = document.getElementById('products-container');
-			container.innerHTML = ''; // Очищаем "Загрузка..."
-
-			products.forEach(product => {
-			const card = document.createElement('div');
-			card.className = 'product-card';
-			card.innerHTML = `
-			<div class="product-icon">${product.icon}</div>
-			<h3>${product.name}</h3>
-			<p class="product-desc">${product.description}</p>
-			<div class="product-price">${product.price.toLocaleString()} ₽</div>
-			<button class="btn-sm" onclick="alert('Для заказа ${product.name} позвоните нам!')">Заказать</button>
-			`;
-			container.appendChild(card);
-			});
-
-			// Перезапускаем анимацию для новых элементов
-			const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-			if (entry.isIntersecting) {
-			entry.target.classList.add('visible');
-			}
-			});
-			}, { threshold: 0.1 });
-
-			document.querySelectorAll('.product-card').forEach(el => observer.observe(el));
-			})
-			.catch(error => {
-			console.error('Ошибка загрузки товаров:', error);
-			document.getElementById('products-container').innerHTML = '<p>Не удалось загрузить товары.</p>';
-			});
-			});
-		</script>
 	</body>
 </html>

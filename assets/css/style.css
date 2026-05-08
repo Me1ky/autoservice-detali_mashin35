@@ -233,7 +233,7 @@ footer {
 }
 
 /* ========================================= */
-/* ===== СТИЛИ ДЛЯ ТОВАРОВ (GRID) ===== */
+/* ===== СТИЛИ ДЛЯ КАТАЛОГА ТОВАРОВ ===== */
 /* ========================================= */
 
 .products-grid {
@@ -302,7 +302,7 @@ footer {
 }
 
 /* ===== Анимации появления ===== */
-.card, .service-item, .contact-item, .stat-card, .hero, .page-hero, .product-card {
+.card, .service-item, .contact-item, .stat-card, .hero, .page-hero, .product-card, .product-wrapper {
     opacity: 0;
     transform: translateY(25px);
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -311,4 +311,32 @@ footer {
 .visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
+}
+
+/* Адаптив для таблиц на мобильных */
+@media (max-width: 480px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 10px;
+        background: white;
+    }
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f1f5f9;
+        text-align: right;
+        padding: 8px 12px;
+    }
+    td:last-child { border-bottom: none; }
+    td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-align: left;
+        color: #0f172a;
+    }
 }

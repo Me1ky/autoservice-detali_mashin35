@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог товаров - Детали Машинъ35</title>
-    <!-- Подключаем стили из папки assets -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Шапка сайта -->
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo">Детали Машинъ35</a>
@@ -19,92 +17,34 @@
                 <a href="about.html">О нас</a>
                 <a href="services.html">Услуги</a>
                 <a href="prices.html">Цены</a>
-                <a href="products.html">Товары</a> <!-- Новая ссылка -->
+                <a href="products.html">Товары</a>
                 <a href="contacts.html">Контакты</a>
             </nav>
         </div>
     </header>
 
-    <!-- Заголовок страницы -->
     <section class="page-hero">
         <div class="container">
             <h2>Каталог товаров</h2>
-            <p>Масла, фильтры и автохимия в наличии</p>
+            <p>Масла, фильтры, автохимия и запчасти в наличии</p>
         </div>
     </section>
 
-    <!-- Основной контент -->
     <main class="container">
         <section>
-            <!-- Сетка товаров -->
-            <div class="products-grid">
-                
-                <!-- Товар 1 -->
-                <div class="product-card">
-                    <div class="product-icon">🛢️</div>
-                    <h3>Shell Helix HX7 5W-30</h3>
-                    <p class="product-desc">Полусинтетика, 4л. Для бензиновых и дизельных двигателей.</p>
-                    <div class="product-price">4 500 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
-                <!-- Товар 2 -->
-                <div class="product-card">
-                    <div class="product-icon">🛢️</div>
-                    <h3>Mobil Super 3000 5W-40</h3>
-                    <p class="product-desc">Синтетика, 4л. Максимальная защита двигателя.</p>
-                    <div class="product-price">5 200 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
-                <!-- Товар 3 -->
-                <div class="product-card">
-                    <div class="product-icon">🌀</div>
-                    <h3>Фильтр масляный Bosch</h3>
-                    <p class="product-desc">Оригинальный фильтр. Подходит для VW, Audi, Skoda.</p>
-                    <div class="product-price">650 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
-                <!-- Товар 4 -->
-                <div class="product-card">
-                    <div class="product-icon">❄️</div>
-                    <h3>Антифриз G12+ Red</h3>
-                    <p class="product-desc">Готовая жидкость, 5кг. Защита до -40°C.</p>
-                    <div class="product-price">900 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
-                <!-- Товар 5 -->
-                <div class="product-card">
-                    <div class="product-icon">💧</div>
-                    <h3>Тормозная жидкость DOT4</h3>
-                    <p class="product-desc">0.5л. Высокая температура кипения.</p>
-                    <div class="product-price">350 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
-                <!-- Товар 6 -->
-                <div class="product-card">
-                    <div class="product-icon">🧼</div>
-                    <h3>Очиститель карбюратора</h3>
-                    <p class="product-desc">Аэрозоль 500мл. Быстрая очистка узлов.</p>
-                    <div class="product-price">450 ₽</div>
-                    <button class="btn-sm" onclick="alert('Звоните для брони: +7 (900) 123-45-67')">Заказать</button>
-                </div>
-
+            <!-- Контейнер для загрузки товаров из JSON -->
+            <div id="products-container" class="products-grid">
+                <p style="text-align:center; width:100%;">Загрузка товаров...</p>
             </div>
         </section>
     </main>
 
-    <!-- Подвал -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Детали Машинъ35 | Автосервис в Вологде</p>
+            <p>&copy; 2026 Детали Машинъ35 | Автосервис в Вологде | ул. Окружное шоссе, 21 к 3</p>
         </div>
     </footer>
 
-    <!-- Скрипты -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>

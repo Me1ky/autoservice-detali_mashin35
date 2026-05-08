@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // 4. Загрузка товаров из JSON (только если мы на главной странице и есть контейнер)
+    // 4. Загрузка ТОВАРОВ из JSON (если есть контейнер products-container)
     const productsContainer = document.getElementById('products-container');
     if (productsContainer) {
         fetch('assets/data/products.json')
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 products.forEach(product => {
                     // Создаем карточку товара
                     const card = document.createElement('div');
-                    card.className = 'product-card'; // Класс для стилей
+                    card.className = 'product-card'; 
                     
                     card.innerHTML = `
                         <div class="product-icon">${product.icon}</div>
@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // После добавления товаров нужно заново запустить анимацию для новых элементов
                 const newCards = document.querySelectorAll('.product-card');
                 newCards.forEach(el => {
-                    // Сбрасываем стили анимации, чтобы они сработали
                     el.classList.remove('visible'); 
                     observer.observe(el);
                 });
@@ -87,6 +86,35 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Ошибка загрузки товаров:', error);
                 productsContainer.innerHTML = '<p style="color:red; text-align:center;">Не удалось загрузить каталог товаров.</p>';
+            });
+    }
+
+    // 5. Загрузка УСЛУГ из JSON (если есть контейнер services-container)
+    const servicesContainer = document.getElementById('services-container');
+    if (servicesContainer) {
+        fetch('assets/data/services.json')
+            .then(response => response.json())
+            .then(services => {
+                servicesContainer.innerHTML = '';
+                services.forEach(service => {
+                    const item = document.createElement('div');
+                    item.className = 'service-item';
+                    item.innerHTML = `
+                        <span class="service-icon">${service.icon}</span>
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                    `;
+                    servicesContainer.appendChild(item);
+                });
+                // Перезапуск анимации для новых элементов
+                document.querySelectorAll('.service-item').forEach(el => {
+                    el.classList.remove('visible');
+                    observer.observe(el);
+                });
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки услуг:', error);
+                servicesContainer.innerHTML = '<p>Не удалось загрузить услуги.</p>';
             });
     }
 });
