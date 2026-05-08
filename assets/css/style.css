@@ -362,6 +362,71 @@ footer {
     background: #f97316;
 }
 
+/* ========================================= */
+/* ===== СТИЛИ ДЛЯ УСЛУГ И КОНТАКТОВ (СЕТКА) ===== */
+/* ========================================= */
+
+/* Сетка для страницы услуг */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Сетка для страницы контактов */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* Стилизация элементов внутри сеток */
+.service-item, .contact-item {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-item:hover, .contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.service-item h3, .contact-item h3 {
+    margin: 15px 0 10px;
+    color: #0f172a;
+}
+
+.service-item p, .contact-item p {
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.contact-item a {
+    color: #f97316;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
 /* ===== Анимации появления ===== */
 .card, .service-item, .contact-item, .stat-card, .hero, .page-hero, .product-card, .product-wrapper {
     opacity: 0;
