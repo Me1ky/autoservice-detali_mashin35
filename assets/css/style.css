@@ -233,6 +233,67 @@ footer {
 }
 
 /* ========================================= */
+/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ "О НАС" ===== */
+/* ========================================= */
+
+.about-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: start;
+}
+
+.about-text {
+    flex: 2;
+}
+
+.about-text h3 {
+    margin-top: 20px;
+    color: #f97316;
+}
+
+.about-text h3:first-child {
+    margin-top: 0;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+}
+
+.advantages-list li {
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #334155;
+}
+
+.about-stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ========================================= */
 /* ===== СТИЛИ ДЛЯ КАТАЛОГА ТОВАРОВ ===== */
 /* ========================================= */
 
