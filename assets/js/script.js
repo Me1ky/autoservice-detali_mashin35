@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Логика мобильного меню (Бургер)
+    // ==========================================
+    // 1. ЛОГИКА МОБИЛЬНОГО МЕНЮ (БУРГЕР)
+    // ==========================================
     const burgerBtn = document.querySelector('.burger-btn');
     const navMenu = document.querySelector('nav');
 
@@ -17,7 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 2. Подсветка активного пункта меню
+    // ==========================================
+    // 2. ПОДСВЕТКА АКТИВНОГО ПУНКТА МЕНЮ
+    // ==========================================
     const currentLocation = location.href;
     const menuItem = document.querySelectorAll('nav a');
     const menuLength = menuItem.length;
@@ -27,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 3. Анимация появления элементов при скролле
+    // ==========================================
+    // 3. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
+    // ==========================================
     const observerOptions = {
         threshold: 0.1
     };
@@ -47,7 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    // 4. Загрузка ТОВАРОВ из JSON (если есть контейнер products-container)
+    // ==========================================
+    // 4. ЗАГРУЗКА ТОВАРОВ ИЗ JSON (products.json)
+    // ==========================================
     const productsContainer = document.getElementById('products-container');
     if (productsContainer) {
         fetch('assets/data/products.json')
@@ -61,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 productsContainer.innerHTML = ''; // Очищаем текст "Загрузка..."
 
                 products.forEach(product => {
-                    // Создаем карточку товара
                     const card = document.createElement('div');
                     card.className = 'product-card'; 
                     
@@ -76,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     productsContainer.appendChild(card);
                 });
 
-                // После добавления товаров нужно заново запустить анимацию для новых элементов
+                // Перезапуск анимации для новых элементов
                 const newCards = document.querySelectorAll('.product-card');
                 newCards.forEach(el => {
                     el.classList.remove('visible'); 
@@ -89,7 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // 5. Загрузка УСЛУГ из JSON (если есть контейнер services-container)
+    // ==========================================
+    // 5. ЗАГРУЗКА УСЛУГ ИЗ JSON (services.json)
+    // ==========================================
     const servicesContainer = document.getElementById('services-container');
     if (servicesContainer) {
         fetch('assets/data/services.json')
@@ -106,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                     servicesContainer.appendChild(item);
                 });
-                // Перезапуск анимации для новых элементов
+                // Перезапуск анимации
                 document.querySelectorAll('.service-item').forEach(el => {
                     el.classList.remove('visible');
                     observer.observe(el);
@@ -115,6 +124,52 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => {
                 console.error('Ошибка загрузки услуг:', error);
                 servicesContainer.innerHTML = '<p>Не удалось загрузить услуги.</p>';
+            });
+    }
+
+    // ==========================================
+    // 6. ЗАГРУЗКА ЦЕН ИЗ JSON (prices.json)
+    // ==========================================
+    const repairTableBody = document.getElementById('repair-table-body');
+    const tireTableBody = document.getElementById('tire-table-body');
+
+    // Проверяем, есть ли эти таблицы на странице (только на prices.html)
+    if (repairTableBody && tireTableBody) {
+        fetch('assets/data/prices.json')
+            .then(response => response.json())
+            .then(data => {
+                // Очищаем таблицы от текста "Загрузка..."
+                repairTableBody.innerHTML = '';
+                tireTableBody.innerHTML = '';
+
+                // data.repair - это массив ремонтных работ
+                if (data.repair) {
+                    data.repair.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td data-label="Услуга">${item.name}</td>
+                            <td data-label="Цена">${item.price}</td>
+                        `;
+                        repairTableBody.appendChild(row);
+                    });
+                }
+
+                // data.tire - это массив шиномонтажа
+                if (data.tire) {
+                    data.tire.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td data-label="Услуга">${item.name}</td>
+                            <td data-label="Цена">${item.price}</td>
+                        `;
+                        tireTableBody.appendChild(row);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки цен:', error);
+                repairTableBody.innerHTML = '<tr><td colspan="2">Ошибка загрузки данных</td></tr>';
+                tireTableBody.innerHTML = '<tr><td colspan="2">Ошибка загрузки данных</td></tr>';
             });
     }
 });
